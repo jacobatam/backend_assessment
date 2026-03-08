@@ -17,7 +17,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
+       // For the assessment environment we allow all origins.
+      // In production this should be restricted to trusted domains.
         http
             .cors()
             .and()
@@ -28,6 +29,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
